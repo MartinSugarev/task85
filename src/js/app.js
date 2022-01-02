@@ -5,8 +5,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   const ul = document.querySelector("ul");
-  const myPokemons = async () => {
-    await fetch('https://pokeapi.co/api/v2/pokemon')
+  const url = 'https://pokeapi.co/api/v2/pokemon';
+
+
+    fetch(url)
     .then(res => res.json())
     .then(data => {
      for(let i = 0; i < 10; i++){
@@ -17,7 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
      }
     })
     .catch(err => console.log(err))
-  }
-  myPokemons();
+ 
 
 });
