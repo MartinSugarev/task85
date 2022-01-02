@@ -5,20 +5,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   const ul = document.querySelector("ul");
-  const url = 'https://pokeapi.co/api/v2/pokemon';
+  const url = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
 
 
-    fetch(url)
-    .then(res => res.json())
-    .then(data => {
-     for(let i = 0; i < 10; i++){
-       let p = data.results[i].name;
-       let el = document.createElement("li");
-       el.innerText = p;
-       ul.appendChild(el);
-     }
-    })
-    .catch(err => console.log(err))
- 
+  fetch(url)
+  .then(res => res.json())
+  .then(data => {
+   for(let i = 0; i < data.results.length; i++){
+     let p = data.results[i].name;
+     let el = document.createElement("li");
+     el.innerText = p;
+     ul.appendChild(el);
+   }
+  })
+  .catch(err => console.log(err))
+
+
 
 });
